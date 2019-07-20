@@ -9,8 +9,8 @@ param
 )
 
 #global variables
-$account = ($env:SYSTEM_TEAMFOUNDATIONSERVERURI -replace "https://(.*)\.visualstudio\.com/", '$1').split('.')[0]
-$basepackageurl = ("https://{0}.pkgs.visualstudio.com/DefaultCollection/_apis/packaging/feeds" -f $account)
+$organization = ($env:SYSTEM_TEAMFOUNDATIONCOLLECTIONURI -replace "https://dev\.azure\.com/(.*)/", '$1').split('.')[0]
+$basepackageurl = ("https://pkgs.dev.azure.com/{0}/_apis/packaging/feeds" -f $organization)
 
 Write-Debug  "basepackageurl=$basepackageurl"
 
